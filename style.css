@@ -64,6 +64,7 @@ body {
 .nav-link {
     color: #000;
     text-decoration: none;
+    font-size: 18px;
 }
 
 .navbar {
@@ -312,4 +313,9 @@ body {
         right: 10px;
         z-index: 1060;
     }
+}
+
+.card-relatorio-financeiro {
+    max-height: 400px; /* Define a altura máxima do card */
+    overflow-y: auto; /* Adiciona barra de rolagem se o conteúdo for maior que a altura definida */
 }
