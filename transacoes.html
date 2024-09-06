@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Financeiro</title>
+    <link rel="icon" href="images/ifood_logo-baixa 1.svg" type="image/png">
+    <!-- Importando o CSS do Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- Seu CSS customizado -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 70px; /* Ajuste para que o conteúdo não fique atrás do menu fixo */
+        }
+
+        .navbar {
+            position: fixed; /* Torna o cabeçalho fixo no topo */
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #f8f9fa; /* Cor de fundo para o contêiner fixo */
+            z-index: 1030; /* Mantém o contêiner acima de outros elementos */
+            padding: 10px 20px; /* Espaçamento interno */
+            border-bottom: 1px solid #ddd; /* Borda inferior para divisão */
+        }
+
+        /* Caixa de notificações */
+        .notification-bell {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notification-bell .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 3px 6px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .notification-box {
+            position: absolute;
+            right: 0;
+            top: 50px;
+            width: 300px;
+            background-color: #ffe6e6;
+            border: 1px solid #ff6666;
+            border-radius: 10px;
+            padding: 10px;
+            display: none;
+            z-index: 1050;
+            max-height: 400px; /* Define a altura máxima */
+            overflow-y: auto; /* Adiciona a rolagem vertical */
+        }
+
+        .notification-box::-webkit-scrollbar {
+            width: 8px; /* Largura da barra de rolagem */
+        }
+
+        .notification-box::-webkit-scrollbar-thumb {
+            background-color: #ff6666; /* Cor do polegar da barra de rolagem */
+            border-radius: 10px;
+        }
+
+        .notification-box::-webkit-scrollbar-track {
+            background-color: #ffe6e6; /* Cor do trilho da barra de rolagem */
+        }
+
+        .notification-box .notification-item {
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 6px solid red; /* Aumenta a espessura da barra lateral */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra para destaque */
+        }
+
+        .notification-box .notification-item.green {
+            border-left-color: green; /* Barra lateral verde para notificações positivas */
+        }
+
+        .notification-box .notification-item p {
+            margin: 0;
+        }
+
+        .notification-box .notification-item .details-link {
+            color: red;
+            font-size: 12px;
+            text-align: right;
+            display: block;
+        }
+
+        /* Estilos para responsividade */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px; /* Reduz o espaçamento para dispositivos menores */
+            }
+
+            .navbar-brand, .navbar-nav {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px; /* Espaçamento entre os itens do menu */
+            }
+
+            .navbar-nav {
+                flex-direction: column; /* Empilha os itens de navegação verticalmente */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Responsiva e Fixa no Topo -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="./images/ifood_logo-baixa 1.svg" alt="iFood Logo" class="mr-2" style="height: 40px;">
+            <span class="h4 font-weight-bold">Financeiro</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="transacoes.html">Transações</a></li>
+                <li class="nav-item"><a class="nav-link" href="relatorio.html">Relatório e análises financeiras</a></li>
+            </ul>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-outline-info mr-3">Nota Fiscal &#8681;</button>
+
+                <!-- Dropdown para o perfil -->
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle p-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="./images/perfil.jpg" alt="Perfil" class="rounded-circle mr-2" style="width: 40px; height: 40px; object-fit: cover;">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Meu Perfil</a>
+                        <a class="dropdown-item" href="#">Configurações</a>
+                        <a class="dropdown-item" href="#">Sair</a>
+                    </div>
+                </div>
+
+                <!-- Sino de Notificações -->
+                <div class="notification-bell ml-3" onclick="toggleNotifications()">
+                    <i class="fas fa-bell text-secondary" style="font-size: 24px;"></i>
+                    <span class="badge">3+</span>
+
+                    <!-- Caixa de Notificações -->
+                    <div class="notification-box" id="notificationBox">
+                        <h5>Notificações</h5>
+                        <div class="notification-item">
+                            <p><strong>Transferência agendada!</strong><br>Você tem uma transferência agendada para o dia 31/04</p>
+                            <a href="#" class="details-link">Detalhes</a>
+                        </div>
+                        <div class="notification-item green">
+                            <p><strong style="color:green;">Dinheiro na conta!</strong><br>Você recebeu um pagamento de R$ 9.440,80</p>
+                            <a href="#" class="details-link">Detalhes</a>
+                        </div>
+                        <div class="notification-item">
+                            <p><strong>Mais uma venda!</strong><br>Você vendeu um produto no valor de R$ 85,90</p>
+                            <a href="#" class="details-link">Detalhes</a>
+                        </div>
+                        <div class="notification-item">
+                            <p><strong>Mais uma venda!</strong><br>Você vendeu um produto no valor de R$ 19,90</p>
+                            <a href="#" class="details-link">Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <div class="container col-11 mt-5 pt-4">
+        <!-- Filtro de Relatório -->
+        <div class="card p-3 mb-4 border-danger">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="font-weight-bold">Filtrar transações</span>
+                </div>
+                <!-- Coloca o botão no canto superior direito -->
+                <div class="ml-auto">
+                    <button class="btn btn-primary">Baixar transações &#8681;</button>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-3">
+                    <label for="start-date">Data da transferência (início)</label>
+                    <input type="date" id="start-date" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label for="end-date">Data da transferência (fim)</label>
+                    <input type="date" id="end-date" class="form-control">
+                </div>
+                <div class="col-md-2">
+                    <label for="status">Status</label>
+                    <select id="status" class="form-control">
+                        <option>Todos</option>
+                        <option>Pagos</option>
+                        <option>Pendentes</option>
+                        <!-- Outras opções -->
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="tipo">Tipo</label>
+                    <select id="tipo" class="form-control">
+                        <option>Repasse</option>
+                        <!-- Outras opções -->
+                    </select>
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button class="btn btn-outline-secondary mr-2">Limpar filtro</button>
+                    <button class="btn btn-danger">Buscar</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tabela de Transações -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Valor Bruto</th>
+                        <th>Comissão ifood (12%)</th>
+                        <th>Taxa (3,5%)</th>
+                        <th>Valor líquido</th>
+                        <th>Status</th>
+                        <th>Data Pag.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3.490,00</td> <td>418,80</td> <td>112,15</td> <td>3.180,43</td> <td>Pendente</td> <td>31/04/24</td>  
+                    </tr>
+                    <tr>
+                        <td>10.700,00</td> <td>1.280,00</td> <td>374,50</td> <td>9.440,80</td> <td>Pago</td> <td>24/04/24</td>  
+                    </tr>
+                    <tr>
+                        <td>3.200,21</td> <td>384,03</td> <td>112,01</td> <td>2.704,17</td> <td>Pago</td> <td>17/04/24</td>  
+                    </tr>
+                    <tr>
+                        <td>2.650,00</td> <td>318,00</td> <td>92,75</td> <td>2.239,25</td> <td>Pago</td> <td>10/04/24</td>  
+                    </tr>
+                    <tr>
+                        <td>3.500,01</td> <td>420,00</td> <td>122,50</td> <td>2.957,51</td> <td>Pago</td> <td>31/03/24</td>  
+                    </tr>
+                    <tr>
+                        <td>6.260,51</td> <td>751,26</td> <td>219,12</td> <td>5.300,13</td> <td>Pago</td> <td>24/03/24</td>  
+                    </tr>
+                    <tr>
+                        <td>7.450,31</td> <td>894,04</td> <td>260,76</td> <td>6.305,51</td> <td>Pago</td> <td>17/03/24</td>  
+                    </tr>
+                    <tr>
+                        <td>7.450,31</td> <td>894,04</td> <td>260,76</td> <td>6.305,51</td> <td>Pago</td> <td>17/03/24</td>  
+                    </tr>
+                    <tr>
+                        <td>7.450,31</td> <td>894,04</td> <td>260,76</td> <td>6.305,51</td> <td>Pago</td> <td>17/03/24</td>  
+                    </tr>
+                    <tr>
+                        <td>7.450,31</td> <td>894,04</td> <td>260,76</td> <td>6.305,51</td> <td>Pago</td> <td>17/03/24</td>  
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center">
+            <a href="#" class="text-danger">Ver mais</a>
+        </div>
+    </div>
+
+    <!-- Scripts para gráficos e notificações -->
+    <script>
+        // Função para exibir/ocultar a caixa de notificações
+        function toggleNotifications() {
+            var notificationBox = document.getElementById('notificationBox');
+            if (notificationBox.style.display === 'block') {
+                notificationBox.style.display = 'none';
+            } else {
+                notificationBox.style.display = 'block';
+            }
+        }
+    </script>
+
+    <!-- Importando scripts JavaScript do Bootstrap e do jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

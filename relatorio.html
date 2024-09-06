@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Financeiro</title>
+    <link rel="icon" href="images/ifood_logo-baixa 1.svg" type="image/png">
+    <!-- Importando o CSS do Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- Seu CSS customizado -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 70px; /* Ajuste para que o conteúdo não fique atrás do menu fixo */
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #f8f9fa;
+            z-index: 1030;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px;
+            }
+
+            .navbar-brand, .navbar-nav {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+            }
+        }
+
+        .notification-bell {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notification-bell .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 3px 6px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Caixa de notificações */
+        .notification-box {
+            position: absolute;
+            right: 0;
+            top: 50px;
+            width: 300px;
+            background-color: #ffe6e6;
+            border: 1px solid #ff6666;
+            border-radius: 10px;
+            padding: 10px;
+            display: none;
+            z-index: 1050;
+        }
+
+        .notification-box h5 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        .notification-box .notification-item {
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 3px solid red;
+        }
+
+        .notification-box .notification-item.green {
+            border-left-color: green;
+        }
+
+        .notification-box .notification-item p {
+            margin: 0;
+        }
+
+        .notification-box .notification-item .details-link {
+            color: red;
+            font-size: 12px;
+            text-align: right;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Responsiva e Fixa no Topo -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="./images/ifood_logo-baixa 1.svg" alt="iFood Logo" class="mr-2" style="height: 40px;">
+            <span class="h4 font-weight-bold">Financeiro</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="transacoes.html">Transações</a></li>
+                <li class="nav-item"><a class="nav-link" href="relatorio.html">Relatório e análises financeiras</a></li>
+            </ul>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-outline-info mr-3">Nota Fiscal &#8681;</button>
+
+                <!-- Dropdown para o perfil -->
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle p-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="./images/perfil.jpg" alt="Perfil" class="rounded-circle mr-2" style="width: 40px; height: 40px; object-fit: cover;">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Meu Perfil</a>
+                        <a class="dropdown-item" href="#">Configurações</a>
+                        <a class="dropdown-item" href="#">Sair</a>
+                    </div>
+                </div>
+
+                <!-- Sino de Notificações -->
+                <div class="notification-bell ml-3" onclick="toggleNotifications()">
+                    <i class="fas fa-bell text-secondary" style="font-size: 24px;"></i>
+                    <span class="badge">3+</span>
+
+                    <!-- Caixa de Notificações -->
+                    <div class="notification-box" id="notificationBox">
+                        <h5>Notificações</h5>
+                        <div class="notification-item">
+                            <p><strong>Transferência agendada!</strong><br>Você tem uma transferência agendada para o dia 31/04</p>
+                            <a href="#" class="details-link">Detalhes</a>
+                        </div>
+                        <div class="notification-item green">
+                            <p><strong style="color:green;">Dinheiro na conta!</strong><br>Você recebeu um pagamento de R$ 9.440,80</p>
+                            <a href="#" class="details-link">Detalhes</a>
+                        </div>
+                        <div class="notification-item">
+                            <p><strong>Mais uma venda!</strong><br>Você vendeu um produto no valor de R$ 85,90</p>
+                            <a href="#" class="details-link">Detalhes</a>
+                        </div>
+                        <div class="notification-item">
+                            <p><strong>Mais uma venda!</strong><br>Você vendeu um produto no valor de R$ 19,90</p>
+                            <a href="#" class="details-link">Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Ajuste de margem superior para o conteúdo, devido à navbar fixa -->
+    <div class="container col-11 mt-5 pt-5">
+        <!-- Filtro de Relatório -->
+        <div class="card p-3 mb-4 border-danger">
+            <div class="d-flex justify-content-between align-items-center flex-wrap flex-md-nowrap">
+                <div class="mb-2 mb-md-0">
+                    <span class="font-weight-bold">Filtrar Relatório</span>
+                </div>
+                <div class="d-flex flex-wrap flex-md-nowrap">
+                    <input type="date" class="form-control mr-md-2 mb-2 mb-md-0" placeholder="Data de início">
+                    <input type="date" class="form-control mr-md-2 mb-2 mb-md-0" placeholder="Data de fim">
+                    <select class="form-control mr-md-2 mb-2 mb-md-0">
+                        <option>Resumo financeiro</option>
+                    </select>
+                    <button class="btn btn-outline-secondary mr-md-2 mb-2 mb-md-0">Limpar filtro</button>
+                    <button class="btn btn-danger mb-2 mb-md-0">Buscar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Relatório Personalizado -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card p-3 border-danger">
+                    <h5>Relatório Personalizado</h5>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="chart-container" style="position: relative; height:34vh; width:34vw">
+                            <canvas id="doughnutChart"></canvas>
+                        </div>
+                        <div class="ml-4">
+                            <div class="mb-2">
+                                <span class="text-success font-weight-bold">Receita:</span> R$ 11.503,44
+                            </div>
+                            <div class="mb-2">
+                                <span class="text-danger font-weight-bold">Despesas:</span> R$ 1.604,44
+                            </div>
+                            <div>
+                                <span class="text-warning font-weight-bold">Lucro líquido:</span> R$ 9.899,00
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 border-danger">
+                    <h5>Resumo</h5>
+                    <p>O relatório apresenta um resumo financeiro do período de 01/01/2024 a 31/03/2024.</p>
+                    <a href="#" class="text-danger">Ver resumo</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gráfico Lucro Líquido vs Despesas -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card p-3 border-danger">
+                    <h5>Lucro Líquido x Despesas</h5>
+                    <canvas id="barChart" height="100"></canvas>
+                    <div class="mt-3">
+                        <p><strong>Janeiro:</strong> Despesas 14.6%, Lucro Líquido 85.4%</p>
+                        <p><strong>Fevereiro:</strong> Despesas 12.7%, Lucro Líquido 87.3%</p>
+                        <p><strong>Março:</strong> Despesas 14.6%, Lucro Líquido 85.4%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts para gráficos e notificações -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <script>
+        // Função para exibir/ocultar a caixa de notificações
+        function toggleNotifications() {
+            var notificationBox = document.getElementById('notificationBox');
+            if (notificationBox.style.display === 'block') {
+                notificationBox.style.display = 'none';
+            } else {
+                notificationBox.style.display = 'block';
+            }
+        }
+
+        // Gráfico de Rosca para Receita, Despesas e Lucro Líquido
+        document.addEventListener('DOMContentLoaded', function () {
+            const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
+            const doughnutChart = new Chart(doughnutCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Receita', 'Despesas', 'Lucro Líquido'],
+                    datasets: [{
+                        data: [11503.44, 1604.44, 9899.00],
+                        backgroundColor: ['#28a745', '#dc3545', '#ffc107']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        datalabels: {
+                            formatter: (value, context) => {
+                                const sum = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = (value * 100 / sum).toFixed(1) + "%";
+                                return percentage;
+                            },
+                            color: '#fff',
+                            font: {
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                },
+                plugins: [ChartDataLabels]
+            });
+
+            const barCtx = document.getElementById('barChart').getContext('2d');
+            const barChart = new Chart(barCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Janeiro', 'Fevereiro', 'Março'],
+                    datasets: [
+                        {
+                            label: 'Despesas',
+                            data: [374.44, 500.00, 730.00],
+                            backgroundColor: '#dc3545',
+                            borderColor: '#dc3545',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Lucro Líquido',
+                            data: [2183.95, 3435.05, 4280.00],
+                            backgroundColor: '#ffc107',
+                            borderColor: '#ffc107',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            stacked: true
+                        },
+                        y: {
+                            beginAtZero: true,
+                            stacked: true,
+                            ticks: {
+                                display: false
+                            },
+                            grid: {
+                                drawBorder: false,
+                                display: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return tooltipItem.dataset.label + ': R$ ' + tooltipItem.raw.toFixed(2);
+                                }
+                            }
+                        },
+                        datalabels: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: [ChartDataLabels]
+            });
+        });
+    </script>
+
+    <!-- Importando scripts JavaScript do Bootstrap e do jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
