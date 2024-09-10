@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Financeiro</title>
     <link rel="icon" href="images/ifood_logo-baixa 1.svg" type="image/png">
-    <!-- Importando o CSS do Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> <!-- Seu CSS customizado -->
+    <link rel="stylesheet" href="style.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body class="finance-page">
-    <!-- Navbar Responsiva e Fixa no Topo -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="./images/ifood_logo-baixa 1.svg" alt="iFood Logo" class="mr-2" style="height: 40px;">
+            <img src="./images/ifood_logo-baixa 1.svg" alt="iFood Logo" class="logo-navbar">
             <span class="h4 font-weight-bold">Financeiro</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,12 +25,10 @@
                 <li class="nav-item"><a class="nav-link" href="relatorio.html">Relatório e análises financeiras</a></li>
             </ul>
             <div class="d-flex align-items-center">
-                <button class="btn btn-outline-info mr-3">Nota Fiscal &#8681;</button>
-
-                <!-- Dropdown para o perfil -->
+                <button class="btn btn-outline-info mr-3">Nota Fiscal ⇩</button>
                 <div class="dropdown">
                     <button class="btn dropdown-toggle p-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="/images/perfil.svg" alt="Perfil" class="rounded-circle mr-2" style="width: 40px; height: 40px; object-fit: cover;">
+                        <img src="/images/perfil.svg" alt="Perfil" class="rounded-circle mr-2 avatar-perfil">
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">Meu Perfil</a>
@@ -41,13 +37,9 @@
                         <a class="dropdown-item" href="index.html">Sair</a>
                     </div>
                 </div>
-
-                <!-- Sino de Notificações -->
                 <div class="notification-bell ml-3" onclick="toggleNotifications()">
-                    <i class="fas fa-bell text-secondary" style="font-size: 24px;"></i>
+                    <i class="fas fa-bell icone-sino"></i>
                     <span class="badge">3+</span>
-
-                    <!-- Caixa de Notificações -->
                     <div class="notification-box" id="notificationBox">
                         <h5>Notificações</h5>
                         <div class="notification-item">
@@ -72,16 +64,14 @@
         </div>
     </nav>
 
-    <!-- Conteúdo Principal -->
     <div class="container col-11 mt-5 pt-4">
-        <!-- Filtro de Relatório -->
         <div class="card p-3 mb-4 border-danger">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     <span class="font-weight-bold">Filtrar transações</span>
                 </div>
                 <div class="ml-auto">
-                    <button class="btn btn-primary" id="baixar-transacoes">Baixar transações &#8681;</button>
+                    <button class="btn btn-primary" id="baixar-transacoes">Baixar transações ⇩</button>
                 </div>
             </div>
             <div class="row mt-3">
@@ -114,7 +104,6 @@
             </div>
         </div>
         
-        <!-- Tabela de Transações -->
         <div class="table-responsive">
             <table class="table table-bordered table-striped" id="tabela-transacoes">
                 <thead>
@@ -166,7 +155,6 @@
         </div>
     </div>
 
-    <!-- Importando scripts JavaScript do Bootstrap e do jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
