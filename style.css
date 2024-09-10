@@ -138,6 +138,21 @@ body {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+.notification-bell .icone-sino {
+    font-size: 24px;
+    color: #6c757d; /* Cor cinza do Bootstrap para ícones */
+}
+
+.logo-navbar {
+    height: 40px;
+    margin-right: 10px; /* Espaçamento entre a logo e o texto */
+}
+
+.avatar-perfil {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
 .notification-box .notification-item.green {
     border-left-color: green;
 }
@@ -372,4 +387,10 @@ body {
     .navbar-nav {
         flex-direction: column;
     }
+}
+
+.chart-container {
+    position: relative;
+    height: 34vh;
+    width: 34vw;
 }
