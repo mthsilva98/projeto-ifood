@@ -9,112 +9,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> <!-- Seu CSS customizado -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            padding-top: 70px; /* Ajuste para que o conteúdo não fique atrás do menu fixo */
-        }
-
-        .navbar {
-            position: fixed; /* Torna o cabeçalho fixo no topo */
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: #f8f9fa; /* Cor de fundo para o contêiner fixo */
-            z-index: 1030; /* Mantém o contêiner acima de outros elementos */
-            padding: 10px 20px; /* Espaçamento interno */
-            border-bottom: 1px solid #ddd; /* Borda inferior para divisão */
-        }
-
-        /* Caixa de notificações */
-        .notification-bell {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .notification-bell .badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background-color: red;
-            color: white;
-            border-radius: 50%;
-            padding: 3px 6px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .notification-box {
-            position: absolute;
-            right: 0;
-            top: 50px;
-            width: 300px;
-            background-color: #ffe6e6;
-            border: 1px solid #ff6666;
-            border-radius: 10px;
-            padding: 10px;
-            display: none;
-            z-index: 1050;
-            max-height: 400px; /* Define a altura máxima */
-            overflow-y: auto; /* Adiciona a rolagem vertical */
-        }
-
-        .notification-box::-webkit-scrollbar {
-            width: 8px; /* Largura da barra de rolagem */
-        }
-
-        .notification-box::-webkit-scrollbar-thumb {
-            background-color: #ff6666; /* Cor do polegar da barra de rolagem */
-            border-radius: 10px;
-        }
-
-        .notification-box::-webkit-scrollbar-track {
-            background-color: #ffe6e6; /* Cor do trilho da barra de rolagem */
-        }
-
-        .notification-box .notification-item {
-            background-color: white;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-left: 6px solid red; /* Aumenta a espessura da barra lateral */
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra para destaque */
-        }
-
-        .notification-box .notification-item.green {
-            border-left-color: green; /* Barra lateral verde para notificações positivas */
-        }
-
-        .notification-box .notification-item p {
-            margin: 0;
-        }
-
-        .notification-box .notification-item .details-link {
-            color: red;
-            font-size: 12px;
-            text-align: right;
-            display: block;
-        }
-
-        /* Estilos para responsividade */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 10px; /* Reduz o espaçamento para dispositivos menores */
-            }
-
-            .navbar-brand, .navbar-nav {
-                width: 100%;
-                text-align: center;
-                margin-bottom: 10px; /* Espaçamento entre os itens do menu */
-            }
-
-            .navbar-nav {
-                flex-direction: column; /* Empilha os itens de navegação verticalmente */
-            }
-        }
-    </style>
 </head>
-<body>
+<body class="finance-page">
     <!-- Navbar Responsiva e Fixa no Topo -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand d-flex align-items-center" href="#">
@@ -184,7 +80,6 @@
                 <div>
                     <span class="font-weight-bold">Filtrar transações</span>
                 </div>
-                <!-- Coloca o botão no canto superior direito -->
                 <div class="ml-auto">
                     <button class="btn btn-primary" id="baixar-transacoes">Baixar transações &#8681;</button>
                 </div>
@@ -204,14 +99,12 @@
                         <option>Todos</option>
                         <option>Pagos</option>
                         <option>Pendentes</option>
-                        <!-- Outras opções -->
                     </select>
                 </div>
                 <div class="col-md-2">
                     <label for="tipo">Tipo</label>
                     <select id="tipo" class="form-control">
                         <option>Repasse</option>
-                        <!-- Outras opções -->
                     </select>
                 </div>
                 <div class="col-md-2 d-flex align-items-end">
@@ -275,7 +168,6 @@
 
     <!-- Scripts para gráficos e notificações -->
     <script>
-        // Função para exibir/ocultar a caixa de notificações
         function toggleNotifications() {
             var notificationBox = document.getElementById('notificationBox');
             if (notificationBox.style.display === 'block') {
@@ -285,16 +177,15 @@
             }
         }
 
-        // Função para baixar a tabela de transações como PDF
         document.getElementById('baixar-transacoes').addEventListener('click', function() {
-            var element = document.querySelector('#tabela-transacoes'); // Captura a tabela de transações
+            var element = document.querySelector('#tabela-transacoes');
 
             var opt = {
-                margin:       0.5,
-                filename:     'transacoes.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true },
-                jsPDF:        { unit: 'in', format: 'a4', orientation: 'landscape' } // Orientação paisagem
+                margin: 0.5,
+                filename: 'transacoes.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' }
             };
 
             html2pdf().from(element).set(opt).save();
