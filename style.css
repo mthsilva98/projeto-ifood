@@ -7,16 +7,20 @@ body {
 
 /* Estilo da página de login */
 #loginPage {
-    background-image: url('/images/fundo\ \(2\).svg'); /* Substitua pelo caminho correto da sua imagem */
+    background-image: url('/images/fundo (2).svg'); /* Substitua pelo caminho correto da sua imagem */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh; /* Ocupa a altura total da viewport */
+    width: 100vw;  /* Ocupa a largura total da viewport */
+    overflow: hidden; /* Garante que não haja rolagem interna */
     margin: 0;
+    padding: 0;
 }
+
 
 #loginPage .login-box {
     background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com opacidade */
