@@ -82,6 +82,10 @@ body {
     font-size: 18px;
 }
 
+.navbar-nav .nav-link.active {
+    color: red !important; /* Cor vermelha quando ativo */
+}
+
 /* Sino de notificações */
 .notification-bell {
     position: relative;
