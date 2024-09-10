@@ -166,36 +166,11 @@
         </div>
     </div>
 
-    <!-- Scripts para gráficos e notificações -->
-    <script>
-        function toggleNotifications() {
-            var notificationBox = document.getElementById('notificationBox');
-            if (notificationBox.style.display === 'block') {
-                notificationBox.style.display = 'none';
-            } else {
-                notificationBox.style.display = 'block';
-            }
-        }
-
-        document.getElementById('baixar-transacoes').addEventListener('click', function() {
-            var element = document.querySelector('#tabela-transacoes');
-
-            var opt = {
-                margin: 0.5,
-                filename: 'transacoes.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' }
-            };
-
-            html2pdf().from(element).set(opt).save();
-        });
-    </script>
-
     <!-- Importando scripts JavaScript do Bootstrap e do jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
