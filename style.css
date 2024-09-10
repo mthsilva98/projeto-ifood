@@ -2,12 +2,13 @@
 body {
     background-color: #f8f9fa;
     font-family: Arial, sans-serif;
+    padding-top: 90px; /* Ajuste aumentado para acomodar a navbar fixa */
 }
 
 /* Estilo da página de login */
 #loginPage {
     background-image: url('/images/fundo\ \(2\).svg'); /* Substitua pelo caminho correto da sua imagem */
-    background-size:cover;
+    background-size: cover;
     background-position: center;
     background-attachment: fixed;
     display: flex;
@@ -61,21 +62,21 @@ body {
 }
 
 /* Navbar */
+.navbar {
+    position: fixed; /* Torna o cabeçalho fixo no topo */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #f8f9fa; /* Cor de fundo para o contêiner fixo */
+    z-index: 1030; /* Mantém o contêiner acima de outros elementos */
+    padding: 10px 20px; /* Espaçamento interno */
+    border-bottom: 1px solid #ddd; /* Borda inferior para divisão */
+}
+
 .nav-link {
     color: #000;
     text-decoration: none;
     font-size: 18px;
-}
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #f8f9fa;
-    z-index: 1030;
-    padding: 10px 20px;
-    border-bottom: 1px solid #ddd;
 }
 
 /* Sino de notificações */
@@ -123,6 +124,30 @@ body {
 
 .notification-box::-webkit-scrollbar-track {
     background-color: #ffe6e6;
+}
+
+.notification-box .notification-item {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 6px solid red;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.notification-box .notification-item.green {
+    border-left-color: green;
+}
+
+.notification-box .notification-item p {
+    margin: 0;
+}
+
+.notification-box .notification-item .details-link {
+    color: red;
+    font-size: 12px;
+    text-align: right;
+    display: block;
 }
 
 /* Cartões */
