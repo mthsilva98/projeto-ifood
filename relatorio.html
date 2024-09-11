@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Financeiro</title>
-    <link rel="icon" href="images/ifood_logo-baixa 1.svg" type="image/png">
+    <title>Dashboard Financeiro</title> 
+    <link rel="icon" href="images/ifood_logo-baixa 1.svg" type="image/png"> 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top"> <!-- Barra de navegação -->
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="./images/ifood_logo-baixa 1.svg" alt="iFood Logo" class="logo-navbar">
+            <img src="./images/ifood_logo-baixa 1.svg" alt="iFood Logo" class="logo-navbar"> 
             <span class="h4 font-weight-bold">Financeiro</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span> <!-- Ícone para responsividade -->
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
+        <div class="collapse navbar-collapse" id="navbarNav"> <!-- Conteúdo da barra de navegação -->
+            <ul class="navbar-nav mx-auto"> 
                 <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
                 <li class="nav-item"><a class="nav-link" href="transacoes.html">Transações</a></li>
                 <li class="nav-item"><a class="nav-link" href="relatorio.html">Relatório e análises financeiras</a></li>
             </ul>
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center"> <!-- Botões e dropdown -->
                 <button class="btn btn-outline-info mr-3">Nota Fiscal ⇩</button>
-                <div class="dropdown">
+                <div class="dropdown"> <!-- Dropdown de perfil -->
                     <button class="btn dropdown-toggle p-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="/images/perfil.svg" alt="Perfil" class="rounded-circle mr-2 avatar-perfil">
                     </button>
@@ -37,10 +37,10 @@
                         <a class="dropdown-item" href="index.html">Sair</a>
                     </div>
                 </div>
-                <div class="notification-bell ml-3" onclick="toggleNotifications()">
+                <div class="notification-bell ml-3" onclick="toggleNotifications()"> <!-- Sino de notificações -->
                     <i class="fas fa-bell icone-sino"></i>
                     <span class="badge">3+</span>
-                    <div class="notification-box" id="notificationBox">
+                    <div class="notification-box" id="notificationBox"> <!-- Lista de notificações -->
                         <h5>Notificações</h5>
                         <div class="notification-item">
                             <p><strong>Transferência agendada!</strong><br>Você tem uma transferência agendada para o dia 31/04</p>
@@ -64,8 +64,8 @@
         </div>
     </nav>
 
-    <div class="container col-11 mt-5 pt-4">
-        <div class="card p-3 mb-4 border-danger">
+    <div class="container col-11 mt-5 pt-4"> <!-- Container principal -->
+        <div class="card p-3 mb-4 border-danger"> <!-- Cartão com filtro de relatório -->
             <div class="d-flex justify-content-between align-items-center flex-wrap flex-md-nowrap">
                 <div class="mb-2 mb-md-0">
                     <span class="font-weight-bold">Filtrar Relatório</span>
@@ -79,15 +79,15 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-6">
+        <div class="row"> <!-- Linha com dois cartões -->
+            <div class="col-md-6"> <!-- Cartão com gráfico de rosca -->
                 <div class="card p-3 border-danger">
                     <h5>Relatório Personalizado</h5>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="chart-container">
-                            <canvas id="doughnutChart"></canvas>
+                            <canvas id="doughnutChart"></canvas> <!-- Container para o gráfico de rosca -->
                         </div>
-                        <div class="mr-5">
+                        <div class="mr-5"> <!-- Legenda do gráfico de rosca -->
                             <div class="mb-2">
                                 <span class="text-warning font-weight-bold">Receita</span><p> R$ 11.503,44</p>
                             </div>
@@ -101,11 +101,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6"> <!-- Cartão com resumo do relatório financeiro -->
                 <div class="card p-3 border-danger card-relatorio-financeiro">
                     <div class="d-flex justify-content-between align-items-start">
                         <h5>Relatório Financeiro - Resumo de Janeiro a Março</h5>
-                        <a href="#" class="text-danger" id="baixar-relatorio">Baixar relatório ⇩</a>
+                        <a href="#" class="text-danger" id="baixar-relatorio">Baixar relatório ⇩</a> 
                     </div>
                     <p>O relatório apresenta um resumo financeiro do período de 01/01/2024 a 31/03/2024.</p>
                     <p><strong>Resumo Geral:</strong></p>
@@ -128,12 +128,12 @@
             </div>
         </div>
 
-        <div class="row mt-4">
+        <div class="row mt-4"> <!-- Linha com cartão de gráfico de barras -->
             <div class="col-md-12">
                 <div class="card p-3 border-danger">
                     <h5>Lucro Líquido x Despesas</h5>
-                    <canvas id="barChart" height="100"></canvas>
-                    <div class="mt-3">
+                    <canvas id="barChart" height="100"></canvas> <!-- Container para o gráfico de barras -->
+                    <div class="mt-3"> <!-- Legenda do gráfico de barras -->
                         <p><strong>Janeiro:</strong> Despesas 14.6%, Lucro Líquido 85.4%</p>
                         <p><strong>Fevereiro:</strong> Despesas 12.7%, Lucro Líquido 87.3%</p>
                         <p><strong>Março:</strong> Despesas 14.6%, Lucro Líquido 85.4%</p>
@@ -143,16 +143,16 @@
         </div>
     </div>
 
+    <!-- Importação de bibliotecas JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
-    <script src="relatorio.js"></script>
-    <script src="notificao.js"></script>
-    <script src="pdf-resumo.js"></script>
-    <script src="click.js"></script> </body>
-
+    <script src="relatorio.js"></script> <!-- Script do relatório -->
+    <script src="notificao.js"></script> <!-- Script das notificações -->
+    <script src="pdf-resumo.js"></script> <!-- Script para gerar PDF do resumo -->
+    <script src="click.js"></script> <!-- Script para eventos de clique -->
 </body>
 </html>

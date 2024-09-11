@@ -17,8 +17,8 @@ document.getElementById('baixar-relatorio').addEventListener('click', function()
     // Gerar o PDF
     html2pdf().from(element).set(opt).save().then(function() {
         // Restaurar o estilo original do card
-        element.style.maxHeight = '400px';  
-        element.style.overflow = 'auto';   
+        element.style.maxHeight = '400px';  // Ajuste de acordo com o layout original
+        element.style.overflow = 'auto';    // Restaurar a rolagem
     });
 });
 

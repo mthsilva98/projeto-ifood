@@ -4,34 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Financeiro</title>
-    <link rel="icon" href="images/ifood_logo-baixa 1.svg" type="image/png">
+    <link rel="icon" href="images/ifood_logo-baixa 1.svg" type="image/png"> 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
 </head>
 <body>
-    
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top"> <!-- Barra de navegação -->
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="./images/ifood_logo-baixa 1.svg" alt="iFood Logo" class="logo-navbar mr-2">
+            <img src="./images/ifood_logo-baixa 1.svg" alt="iFood Logo" class="logo-navbar mr-2"> 
             <span class="h4 font-weight-bold">Financeiro</span>
         </a>
-        <!-- navbar -->
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
+        <div class="collapse navbar-collapse" id="navbarNav"> <!-- Conteúdo da barra de navegação -->
+            <ul class="navbar-nav mx-auto"> 
                 <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
                 <li class="nav-item"><a class="nav-link" href="transacoes.html">Transações</a></li>
                 <li class="nav-item"><a class="nav-link" href="relatorio.html">Relatório e análises financeiras</a></li>
             </ul>
-            <div class="d-flex align-items-center">
-                <button class="btn btn-outline-info mr-3">Nota Fiscal &#8681;</button>
+            <div class="d-flex align-items-center"> <!-- Botões e dropdown -->
+                <button class="btn btn-outline-info mr-3">Nota Fiscal ⇩</button> 
 
-                <!-- Dropdown do perfil -->
-                <div class="dropdown">
+                <div class="dropdown"> <!-- Dropdown de perfil -->
                     <button class="btn dropdown-toggle p-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="/images/perfil.svg" alt="Perfil" class="rounded-circle mr-2 avatar-perfil">
                     </button>
@@ -43,20 +40,18 @@
                     </div>
                 </div>
 
-                <!-- Sino de Notificações -->
-                <div class="notification-bell ml-3" onclick="toggleNotifications()">
+                <div class="notification-bell ml-3" onclick="toggleNotifications()"> <!-- Sino de notificações -->
                     <i class="fas fa-bell icone-sino"></i>
                     <span class="badge">3+</span>
 
-                    <!-- Caixa de Notificações -->
-                    <div class="notification-box" id="notificationBox">
+                    <div class="notification-box" id="notificationBox"> <!-- Caixa de notificações -->
                         <h5>Notificações</h5>
                         <div class="notification-item">
                             <p><strong>Transferência agendada!</strong><br>Você tem uma transferência agendada para o dia 31/04</p>
                             <a href="#" class="details-link">Detalhes</a>
                         </div>
                         <div class="notification-item green">
-                            <p><strong >Dinheiro na conta!</strong><br>Você recebeu um pagamento de R$ 9.440,80</p>
+                            <p><strong>Dinheiro na conta!</strong><br>Você recebeu um pagamento de R$ 9.440,80</p>
                             <a href="#" class="details-link">Detalhes</a>
                         </div>
                         <div class="notification-item">
@@ -73,8 +68,7 @@
         </div>
     </nav>
 
-    <!-- Conteúdo Principal -->
-    <div class="container col-11 mt-5 pt-4">
+    <div class="container col-11 mt-5 pt-4"> <!-- Container principal -->
         <!-- Filtros e visão geral do mês -->
         <div class="periodo-venda mb-1 mt-1">
             <span>Período de Vendas</span>
@@ -84,29 +78,25 @@
             </select>
         </div>
         
-        <!-- Cards -->
-        <div class="row">
-            <!-- Transferências de hoje -->
+        <div class="row"> <!-- Linha com três cards -->
             <div class="col-md-4 mb-4">
-                <div class="card p-3 text-center border-danger">
+                <div class="card p-3 text-center border-danger"> <!-- Card de transferências de hoje -->
                     <h5>Transferências de hoje</h5>
                     <h3 class="text-success">R$ 9.440,80</h3>
                     <p>Feito em 4 pagamentos</p>
                     <a href="transacoes.html" class="text-danger">Ver transferências de hoje</a>
                 </div>
             </div>
-            <!-- Transferência agendada -->
             <div class="col-md-4 mb-4">
-                <div class="card p-3 text-center border-danger">
+                <div class="card p-3 text-center border-danger"> <!-- Card de transferência agendada -->
                     <h5>Transferência agendada</h5>
                     <h3>R$ 3.180,43</h3>
                     <p>Próxima transferência em 31/04</p>
                     <a href="transacoes.html" class="text-danger">Ver transferência agendada</a>
                 </div>
             </div>
-            <!-- Despesas -->
             <div class="col-md-4 mb-4">
-                <div class="card p-3 text-center border-danger">
+                <div class="card p-3 text-center border-danger"> <!-- Card de despesas -->
                     <h5>Despesas</h5>
                     <h3 class="text-danger">R$ 1.080,43</h3>
                     <p>Total de taxas</p>
@@ -115,33 +105,30 @@
             </div>
         </div>
 
-        <!-- Gráfico e Relatórios -->
-        <div class="row">
-            <!-- Gráfico de Vendas -->
+        <div class="row"> <!-- Linha com gráfico e relatórios -->
             <div class="col-md-6 mb-4">
-                <div class="card p-2 border-danger">
+                <div class="card p-2 border-danger"> <!-- Card com gráfico de vendas -->
                     <h5>Total de vendas</h5>
                     <h3>R$ 55.876,29</h3>
                     <p>2.300 pedidos concluídos<br>30 pedidos cancelados</p>
                     <div id="chart-placeholder">
-                        <canvas id="salesChart" width="300" height="300"></canvas>
+                        <canvas id="salesChart" width="300" height="300"></canvas> <!-- Container para o gráfico de vendas -->
                     </div>
                     <a href="relatorio.html" class="text-danger">Ver detalhes</a>
                 </div>
             </div>
 
-            <!-- Relatório -->
             <div class="col-md-6 mb-4">
-                <div class="card p-4 border-danger">
+                <div class="card p-4 border-danger"> <!-- Card com relatórios -->
                     <h5>Relatório</h5>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <button class="btn btn-light btn-sm" id="prev-report">&larr;</button>
+                    <div class="d-flex justify-content-between align-items-center mb-3"> <!-- Navegação entre relatórios -->
+                        <button class="btn btn-light btn-sm" id="prev-report">←</button>
                         <span id="report-title">Cardápio</span>
-                        <button class="btn btn-light btn-sm" id="next-report">&rarr;</button>
+                        <button class="btn btn-light btn-sm" id="next-report">→</button>
                     </div>
-                    <div id="report-container">
-                        <!-- Relatórios dinâmicos -->
-                        <div class="report report-cardapio active">
+                    <div id="report-container"> <!-- Container dos relatórios -->
+                        <!-- Relatório Cardápio -->
+                        <div class="report report-cardapio active"> 
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <button class="btn btn-danger btn-sm mr-2">Mais vendidos</button>
                                 <button class="btn btn-light btn-sm">Menos vendidos</button>
@@ -150,7 +137,7 @@
                                 </div>
                             </div>
                             <div class="table-responsive mt-3">
-                                <table class="table table-striped">
+                                <table class="table table-striped"> <!-- Tabela de itens do cardápio -->
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -182,18 +169,17 @@
                                             <td>230</td>
                                             <td>R$ 1.035,00</td>
                                         </tr>
-                                        
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                         
                         <!-- Relatório Região -->
-                        <div class="report report-regiao d-none">
+                        <div class="report report-regiao d-none"> 
                             <h6>Região com mais vendas</h6>
                             <div class="mt-3">
                                 <div class="d-flex align-items-center mb-2">
-                                    <img src="/images/casa-1.svg" alt="Jabaquara" class="mr-2" >
+                                    <img src="/images/casa-1.svg" alt="Jabaquara" class="mr-2">
                                     <span class="flex-grow-1">Jabaquara</span>
                                     <div class="progress w-50 mx-2">
                                         <div class="progress-bar bg-danger" style="width: 80%;">230 Vendas</div>
@@ -231,7 +217,7 @@
                         </div>
 
                         <!-- Relatório Horário -->
-                        <div class="report report-horario d-none">
+                        <div class="report report-horario d-none"> 
                             <h6>Picos de horários com mais vendas</h6>
                             <div class="d-flex mb-3">
                                 <button class="btn btn-danger btn-sm mr-2">Semana</button>
@@ -279,7 +265,7 @@
                         </div>
 
                         <!-- Relatório Pagamentos -->
-                        <div class="report report-pagamentos d-none">
+                        <div class="report report-pagamentos d-none"> 
                             <h6>Meios de pagamentos mais usados</h6>
                             <div class="mt-3">
                                 <div class="d-flex align-items-center mb-2">
@@ -335,11 +321,10 @@
                         </div>
 
                         <!-- Relatório Semana -->
-                        <div class="report report-semana d-none">
+                        <div class="report report-semana d-none"> 
                             <h6>Dias com mais vendas</h6>
                             <div class="mt-3 text-center">
-                                <!-- Gráfico de barras para dias da semana -->
-                                <div class="bar-chart">
+                                <div class="bar-chart"> <!-- Gráfico de barras para dias da semana -->
                                     <div class="bar-container">
                                         <div class="bar" style="height: 89px;" data-value="89">89</div>
                                         <div class="bar-label">Seg</div>
@@ -377,13 +362,14 @@
         </div>
     </div>
 
+    <!-- Importação de bibliotecas JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="notificao.js"></script>
-    <script src="dashboard.js"></script>
-    <script src="click.js"></script> </body>
+    <script src="notificao.js"></script> <!-- Script das notificações -->
+    <script src="dashboard.js"></script> <!-- Script do dashboard -->
+    <script src="click.js"></script> <!-- Script para eventos de clique -->
 </body>
 </html>
