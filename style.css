@@ -14,25 +14,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ocupa a altura total da viewport */
-    width: 100vw;  /* Ocupa a largura total da viewport */
-    overflow: hidden; /* Garante que não haja rolagem interna */
+    height: 100vh; 
+    width: 100vw;  
+    overflow: hidden;
     margin: 0;
     padding: 0;
 }
 
 #loginPage .login-box {
-    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com opacidade */
+    background-color: rgba(255, 255, 255, 0.9); 
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Sombra para realce */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); 
     width: 100%;
     max-width: 400px;
     text-align: center;
 }
 
 #loginPage h3 {
-    color: #dc3545; /* Cor do texto vermelho para combinar com o tema */
+    color: #dc3545; 
 }
 
 #loginPage .form-control {
@@ -83,7 +83,7 @@ body {
 }
 
 .navbar-nav .nav-link.active {
-    color: red !important; /* Cor vermelha quando ativo */
+    color: red !important; 
 }
 
 /* Sino de notificações */
@@ -144,7 +144,7 @@ body {
 
 .notification-bell .icone-sino {
     font-size: 24px;
-    color: #6c757d; /* Cor cinza do Bootstrap para ícones */
+    color: #6c757d; 
 }
 
 .logo-navbar {
@@ -363,8 +363,8 @@ body {
 }
 
 .card-relatorio-financeiro {
-    max-height: 400px; /* Define a altura máxima do card */
-    overflow-y: auto; /* Adiciona barra de rolagem se o conteúdo for maior que a altura definida */
+    max-height: 400px; /* altura máxima do card */
+    overflow-y: auto; /* barra de rolagem se o conteúdo for maior que a altura definida */
 }
 
 /* Estilos específicos para a página financeira */
@@ -372,9 +372,6 @@ body {
     background-color: #f8f9fa;
     padding-top: 70px;
 }
-
-/* Removido: Estilos para navbar e notification box dentro da media query
- *  já que eles já estão definidos globalmente. */
 
 /* Responsividade específica para a página financeira */
 @media (max-width: 768px) {
