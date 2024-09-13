@@ -1,412 +1,427 @@
-/* Estilos globais */
-body {
-    background-color: #faf8fa;
-    font-family: Arial, sans-serif;
-    padding-top: 90px; 
-}
-
-/* 
-    Página de login 
-*/
-#loginPage {
-    background-image: url('/images/fundo (2).svg'); 
-    background-size: cover; 
-    background-position: center; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; 
-    width: 100vw;  
-    overflow: hidden; 
-    margin: 0;
-    padding: 0;
-}
-
-#loginPage .login-box {
-    background-color: rgba(255, 255, 255, 0.9); 
-    padding: 40px;
-    border-radius: 20px; 
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); 
-    width: 100%;
-    max-width: 400px; 
-    text-align: center;
-}
-
-#loginPage h3 {
-    color: #dc3545; 
-}
-
-#loginPage .form-control {
-    border-radius: 30px; 
-    border: 2px solid #dc3545; 
-}
-
-#loginPage .form-control:focus {
-    box-shadow: none; 
-    border-color: #a52828; 
-}
-
-#loginPage .btn-block {
-    background-color: #dc3545; 
-    color: white; 
-    font-weight: bold; 
-    border-radius: 30px; 
-}
-
-#loginPage .btn-block:hover {
-    background-color: #a52828; 
-}
-
-#loginPage a {
-    color: #dc3545; 
-}
-
-#loginPage a:hover {
-    text-decoration: underline; 
-}
-
-/* 
-    Navbar 
-*/
-.navbar {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #f8f9fa; 
-    z-index: 1030; 
-    padding: 10px 20px;
-    border-bottom: 1px solid #ddd; 
-}
-
-.nav-link {
-    color: #000; 
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.navbar-nav .nav-link.active {
-    color: red !important; 
-}
-
-/* 
-    Sino de notificações 
-*/
-.notification-bell {
-    position: relative;
-    cursor: pointer; 
-}
-
-.notification-bell .badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: red; 
-    color: white; 
-    border-radius: 50%; 
-    padding: 3px 6px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-/* 
-    Caixa de notificações 
-*/
-.notification-box {
-    position: absolute;
-    right: 0;
-    top: 50px;
-    width: 300px;
-    background-color: #ffe6e6; 
-    border: 1px solid #ff6666; 
-    border-radius: 10px; 
-    padding: 10px;
-    display: none; 
-    z-index: 1050; 
-    max-height: 400px; 
-    overflow-y: auto; 
-}
-
-/* Estilos da barra de rolagem da caixa de notificações */
-.notification-box::-webkit-scrollbar {
-    width: 8px;
-}
-
-.notification-box::-webkit-scrollbar-thumb {
-    background-color: #ff6666; 
-    border-radius: 10px;
-}
-
-.notification-box::-webkit-scrollbar-track {
-    background-color: #ffe6e6; 
-}
-
-.notification-box .notification-item {
-    background-color: white; 
-    border-radius: 5px; 
-    padding: 10px;
-    margin-bottom: 10px;
-    border-left: 6px solid red; 
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); 
-}
-
-.notification-bell .icone-sino {
-    font-size: 24px;
-    color: #6c757d; 
-}
-
-.logo-navbar {
-    height: 40px;
-    margin-right: 10px; 
-}
-
-.avatar-perfil {
-    width: 40px;
-    height: 40px;
-    object-fit: cover; 
-}
-
-.notification-box .notification-item.green {
-    border-left-color: green; 
-}
-
-.notification-box .notification-item p {
-    margin: 0;
-}
-
-.notification-box .notification-item .details-link {
-    color: red; 
-    font-size: 12px;
-    text-align: right;
-    display: block;
-}
-
-/* 
-    Cartões 
-*/
-.card {
-    border-radius: 10px; 
-    border: 1px solid #ddd; 
-}
-
-.card h5 {
-    margin-bottom: 20px;
-}
-
-/* 
-    Tabelas 
-*/
-.table {
-    margin-top: 20px;
-}
-
-.table th,
-.table td {
-    text-align: center;
-    vertical-align: middle;
-}
-
-.img-thumbnail {
-    border: none;
-    width: 50px;
-    height: 50px;
-    object-fit: cover; 
-}
-
-/* 
-    Botões customizados 
-*/
-.btn-danger {
-    background-color: #ff4d4d; 
-    border-color: #ff4d4d; 
-}
-
-.btn-light {
-    color: #555;
-    background-color: #f8f9fa; 
-    border-color: #ddd; 
-}
-
-.btn-light:hover {
-    background-color: #e2e6ea; 
-}
-
-/* 
-    Relatórios 
-*/
-.report {
-    display: none; 
-    height: 60%;
-    overflow: auto; 
-}
-
-.report.active {
-    display: block; 
-}
-
-.flex-grow-1 {
-    flex-grow: 1; 
-}
-
-.progress {
-    height: 20px;
-    background-color: #f8d7da; 
-}
-
-.progress-bar {
-    line-height: 20px;
-    font-size: 12px;
-    background-color: #dc3545; 
-}
-
-.report-regiao img,
-.report-pagamentos img {
-    width: 30px;
-    height: 30px;
-    object-fit: cover; 
-}
-
-/* 
-    Gráfico de barras na semana 
-*/
-.bar-chart {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    height: 250px;
-    background-color: #f4f4f4; 
-    border-radius: 10px; 
-    padding: 20px;
-    margin: 20px 0;
-}
-
-.bar-chart .bar-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    width: 40px;
-    margin: 0 10px;
-}
-
-.bar-chart .bar {
-    width: 100%;
-    max-height: 150px;
-    background-color: #dc3545; 
-    border-radius: 5px 5px 0 0; 
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    color: #fff; 
-    font-size: 12px;
-    margin-bottom: 5px;
-}
-
-.bar-chart .bar-label {
-    margin-top: 10px;
-    font-size: 14px;
-    text-align: center;
-    font-weight: bold;
-    color: #333;
-    width: 100%;
-}
-
-#salesChart {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto; 
-}
-
-#chart-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#report-container {
-    min-height: 276px;
-    position: relative;
-}
-
-/* Ajustes para a navbar fixa */
-.fixed-top {
-    z-index: 1030; 
-}
-
-.pt-5 {
-    padding-top: 70px; 
-}
-
-/* 
-    Responsividade 
-*/
-@media (max-width: 768px) {
+    /* Estilos globais */
+    body {
+        background-color: #faf8fa;
+        font-family: Arial, sans-serif;
+        padding-top: 90px;
+    }
+    
+    /* 
+        Cores reutilizáveis
+    */
+    :root {
+        --cor-primaria: #dc3545;
+        --cor-primaria-escura: #a52828;
+        --cor-fundo-card: #f8f9fa;
+        --cor-texto-claro: #555;
+        --cor-borda-clara: #ddd;
+        --cor-sombra-clara: rgba(0, 0, 0, 0.1);
+    }
+    
+    /* 
+        Página de login 
+    */
+    #loginPage {
+        background-image: url('/images/fundo (2).svg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #loginPage .login-box {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 15px var(--cor-sombra-clara);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+    }
+    
+    #loginPage h3 {
+        color: var(--cor-primaria);
+    }
+    
+    #loginPage .form-control {
+        border-radius: 30px;
+        border: 2px solid var(--cor-primaria);
+    }
+    
+    #loginPage .form-control:focus {
+        box-shadow: none;
+        border-color: var(--cor-primaria-escura);
+    }
+    
+    #loginPage .btn-block {
+        background-color: var(--cor-primaria);
+        color: white;
+        font-weight: bold;
+        border-radius: 30px;
+    }
+    
+    #loginPage .btn-block:hover {
+        background-color: var(--cor-primaria-escura);
+    }
+    
+    #loginPage a {
+        color: var(--cor-primaria);
+    }
+    
+    #loginPage a:hover {
+        text-decoration: underline;
+    }
+    
+    /* 
+        Navbar 
+    */
     .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--cor-fundo-card);
+        z-index: 1030;
+        padding: 10px 20px;
+        border-bottom: 1px solid var(--cor-borda-clara);
+    }
+    
+    .nav-link {
+        color: #000;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    
+    .navbar-nav .nav-link.active {
+        color: var(--cor-primaria) !important;
+    }
+    
+    /* 
+        Sino de notificações 
+    */
+    .notification-bell {
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .notification-bell .badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: var(--cor-primaria);
+        color: white;
+        border-radius: 50%;
+        padding: 3px 6px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    
+    /* 
+        Caixa de notificações 
+    */
+    .notification-box {
+        position: absolute;
+        right: 0;
+        top: 50px;
+        width: 300px;
+        background-color: #ffe6e6;
+        border: 1px solid #ff6666;
+        border-radius: 10px;
+        padding: 10px;
+        display: none;
+        z-index: 1050;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    
+    /* Estilos da barra de rolagem */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: #ff6666;
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background-color: #ffe6e6;
+    }
+    
+    .notification-box .notification-item {
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-left: 6px solid var(--cor-primaria);
+        box-shadow: 2px 2px 10px var(--cor-sombra-clara);
+    }
+    
+    .notification-bell .icone-sino {
+        font-size: 24px;
+        color: #6c757d;
+    }
+    
+    .logo-navbar {
+        height: 40px;
+        margin-right: 10px;
+    }
+    
+    .avatar-perfil {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+    }
+    
+    .notification-box .notification-item.green {
+        border-left-color: green;
+    }
+    
+    .notification-box .notification-item p {
+        margin: 0;
+    }
+    
+    .notification-box .notification-item .details-link {
+        color: var(--cor-primaria);
+        font-size: 12px;
+        text-align: right;
+        display: block;
+    }
+    
+    /* 
+        Cartões 
+    */
+    .card {
+        border-radius: 10px;
+        border: 1px solid var(--cor-borda-clara);
+    }
+    
+    .card h5 {
+        margin-bottom: 20px;
+    }
+    
+    /* 
+        Tabelas 
+    */
+    .table {
+        margin-top: 20px;
+    }
+    
+    .table th,
+    .table td {
+        text-align: center;
+        vertical-align: middle;
+    }
+    
+    .img-thumbnail {
+        border: none;
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+    }
+    
+    /* 
+        Botões customizados 
+    */
+    .btn-danger {
+        background-color: #ff4d4d;
+        border-color: #ff4d4d;
+    }
+    
+    .btn-light {
+        color: var(--cor-texto-claro);
+        background-color: var(--cor-fundo-card);
+        border-color: var(--cor-borda-clara);
+    }
+    
+    .btn-light:hover {
+        background-color: #e2e6ea;
+    }
+    
+    /* 
+        Relatórios 
+    */
+    .report {
+        display: none;
+        height: 60%;
+        overflow: auto;
+    }
+    
+    .report.active {
+        display: block;
+    }
+    
+    .flex-grow-1 {
+        flex-grow: 1;
+    }
+    
+    .progress {
+        height: 20px;
+        background-color: #f8d7da;
+    }
+    
+    .progress-bar {
+        line-height: 20px;
+        font-size: 12px;
+        background-color: var(--cor-primaria);
+    }
+    
+    .report-regiao img,
+    .report-pagamentos img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+    }
+    
+    /* 
+        Gráfico de barras na semana 
+    */
+    .bar-chart {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        height: 250px;
+        background-color: #f4f4f4;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .bar-chart .bar-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        width: 40px;
+        margin: 0 10px;
+    }
+    
+    .bar-chart .bar {
+        width: 100%;
+        max-height: 150px;
+        background-color: var(--cor-primaria);
+        border-radius: 5px 5px 0 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        color: #fff;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+    
+    .bar-chart .bar-label {
+        margin-top: 10px;
+        font-size: 14px;
+        text-align: center;
+        font-weight: bold;
+        color: #333;
+        width: 100%;
+    }
+    
+    #salesChart {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    #chart-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #report-container {
+        min-height: 276px;
+        position: relative;
+    }
+    
+    /* Ajustes para a navbar fixa */
+    .fixed-top {
+        z-index: 1030;
+    }
+    
+    .pt-5 {
+        padding-top: 70px;
+    }
+    
+    /* 
+        Responsividade 
+    */
+    @media (max-width: 768px) {
+        .navbar {
         padding: 10px;
         justify-content: space-between;
         align-items: center;
-    }
-
-    .navbar-collapse {
+        }
+    
+        .navbar-collapse {
         flex-grow: 1;
         justify-content: center;
-    }
-
-    .navbar-brand, .navbar-nav, .d-flex {
+        }
+    
+        .navbar-brand,
+        .navbar-nav,
+        .d-flex {
         width: 100%;
         text-align: center;
-    }
-
-    .navbar-toggler {
+        }
+    
+        .navbar-toggler {
         margin-left: auto;
-    }
-
-    .navbar-nav {
+        }
+    
+        .navbar-nav {
         margin-top: 10px;
-    }
-
-    .d-flex {
+        }
+    
+        .d-flex {
         margin-top: 10px;
         flex-direction: column;
-    }
-
-    .card {
+        }
+    
+        .card {
         margin-bottom: 20px;
-    }
-
-    .notification-bell {
+        }
+    
+        .notification-bell {
         position: absolute;
         top: 10px;
         right: 10px;
         z-index: 1060;
+        }
     }
-}
-
-.card-relatorio-financeiro {
-    max-height: 400px; 
-    overflow-y: auto; 
-}
-
-/* Responsividade específica para a página financeira */
-@media (max-width: 768px) {
-    .navbar {
+    
+    .card-relatorio-financeiro {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    
+    /* Responsividade específica para a página financeira */
+    @media (max-width: 768px) {
+        .navbar {
         padding: 10px;
-    }
-
-    .navbar-brand, .navbar-nav {
+        }
+    
+        .navbar-brand,
+        .navbar-nav {
         width: 100%;
         text-align: center;
         margin-bottom: 10px;
-    }
-
-    .navbar-nav {
+        }
+    
+        .navbar-nav {
         flex-direction: column;
+        }
     }
-}
-
-.chart-container {
-    position: relative;
-    height: 34vh;
-    width: 34vw;
-}
+    
+    .chart-container {
+        position: relative;
+        height: 34vh;
+        width: 34vw;
+    }
