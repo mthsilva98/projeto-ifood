@@ -2,92 +2,91 @@
 body {
     background-color: #faf8fa;
     font-family: Arial, sans-serif;
-    padding-top: 90px; /* Ajusta o padding superior para acomodar a navbar fixa */
+    padding-top: 90px; 
 }
 
 /* 
     Página de login 
 */
 #loginPage {
-    background-image: url('/images/fundo (2).svg'); /* Imagem de fundo */
-    background-size: cover; /* Ajusta a imagem ao tamanho da tela */
-    background-position: center; /* Centraliza a imagem de fundo */
-    background-attachment: fixed; /* Mantém a imagem fixa durante o scroll */
+    background-image: url('/images/fundo (2).svg'); 
+    background-size: cover; 
+    background-position: center; 
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ocupa 100% da altura da janela */
-    width: 100vw;  /* Ocupa 100% da largura da janela */
-    overflow: hidden; /* Esconde a barra de rolagem */
+    height: 100vh; 
+    width: 100vw;  
+    overflow: hidden; 
     margin: 0;
     padding: 0;
 }
 
 #loginPage .login-box {
-    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+    background-color: rgba(255, 255, 255, 0.9); 
     padding: 40px;
-    border-radius: 20px; /* Cantos arredondados */
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-radius: 20px; 
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); 
     width: 100%;
-    max-width: 400px; /* Largura máxima da caixa de login */
+    max-width: 400px; 
     text-align: center;
 }
 
 #loginPage h3 {
-    color: #dc3545; /* Cor do título */
+    color: #dc3545; 
 }
 
 #loginPage .form-control {
-    border-radius: 30px; /* Cantos arredondados nos campos de input */
-    border: 2px solid #dc3545; /* Cor da borda dos campos de input */
+    border-radius: 30px; 
+    border: 2px solid #dc3545; 
 }
 
 #loginPage .form-control:focus {
-    box-shadow: none; /* Remove a sombra padrão ao focar no campo */
-    border-color: #a52828; /* Cor da borda ao focar no campo */
+    box-shadow: none; 
+    border-color: #a52828; 
 }
 
 #loginPage .btn-block {
-    background-color: #dc3545; /* Cor de fundo do botão */
-    color: white; /* Cor do texto do botão */
-    font-weight: bold; /* Texto em negrito */
-    border-radius: 30px; /* Cantos arredondados no botão */
+    background-color: #dc3545; 
+    color: white; 
+    font-weight: bold; 
+    border-radius: 30px; 
 }
 
 #loginPage .btn-block:hover {
-    background-color: #a52828; /* Cor de fundo do botão ao passar o mouse */
+    background-color: #a52828; 
 }
 
 #loginPage a {
-    color: #dc3545; /* Cor do link */
+    color: #dc3545; 
 }
 
 #loginPage a:hover {
-    text-decoration: underline; /* Sublinhado ao passar o mouse */
+    text-decoration: underline; 
 }
 
 /* 
     Navbar 
 */
 .navbar {
-    position: fixed; /* Barra de navegação fixa no topo */
+    position: fixed; 
     top: 0;
     left: 0;
     right: 0;
-    background-color: #f8f9fa; /* Cor de fundo da navbar */
-    z-index: 1030; /* Garante que a navbar fique acima de outros elementos */
+    background-color: #f8f9fa; 
+    z-index: 1030; 
     padding: 10px 20px;
-    border-bottom: 1px solid #ddd; /* Linha divisória na parte inferior */
+    border-bottom: 1px solid #ddd; 
 }
 
 .nav-link {
-    color: #000; /* Cor do link da navbar */
+    color: #000; 
     text-decoration: none;
     font-size: 18px;
 }
 
 .navbar-nav .nav-link.active {
-    color: red !important; /* Cor do link ativo na navbar */
+    color: red !important; 
 }
 
 /* 
@@ -95,16 +94,16 @@ body {
 */
 .notification-bell {
     position: relative;
-    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    cursor: pointer; 
 }
 
 .notification-bell .badge {
     position: absolute;
     top: -5px;
     right: -5px;
-    background-color: red; /* Cor de fundo do badge de notificação */
-    color: white; /* Cor do texto do badge */
-    border-radius: 50%; /* Faz o badge ficar redondo */
+    background-color: red; 
+    color: white; 
+    border-radius: 50%; 
     padding: 3px 6px;
     font-size: 12px;
     font-weight: bold;
@@ -118,14 +117,14 @@ body {
     right: 0;
     top: 50px;
     width: 300px;
-    background-color: #ffe6e6; /* Cor de fundo da caixa de notificações */
-    border: 1px solid #ff6666; /* Cor da borda da caixa de notificações */
-    border-radius: 10px; /* Cantos arredondados */
+    background-color: #ffe6e6; 
+    border: 1px solid #ff6666; 
+    border-radius: 10px; 
     padding: 10px;
-    display: none; /* Inicialmente oculta */
-    z-index: 1050; /* Garante que a caixa fique acima de outros elementos */
-    max-height: 400px; /* Altura máxima da caixa */
-    overflow-y: auto; /* Adiciona barra de rolagem se o conteúdo ultrapassar a altura máxima */
+    display: none; 
+    z-index: 1050; 
+    max-height: 400px; 
+    overflow-y: auto; 
 }
 
 /* Estilos da barra de rolagem da caixa de notificações */
@@ -134,41 +133,41 @@ body {
 }
 
 .notification-box::-webkit-scrollbar-thumb {
-    background-color: #ff6666; /* Cor da barra de rolagem */
+    background-color: #ff6666; 
     border-radius: 10px;
 }
 
 .notification-box::-webkit-scrollbar-track {
-    background-color: #ffe6e6; /* Cor do trilho da barra de rolagem */
+    background-color: #ffe6e6; 
 }
 
 .notification-box .notification-item {
-    background-color: white; /* Cor de fundo do item de notificação */
-    border-radius: 5px; /* Cantos arredondados */
+    background-color: white; 
+    border-radius: 5px; 
     padding: 10px;
     margin-bottom: 10px;
-    border-left: 6px solid red; /* Barra lateral vermelha no item de notificação */
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-left: 6px solid red; 
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); 
 }
 
 .notification-bell .icone-sino {
     font-size: 24px;
-    color: #6c757d; /* Cor do ícone do sino */
+    color: #6c757d; 
 }
 
 .logo-navbar {
     height: 40px;
-    margin-right: 10px; /* Espaçamento entre a logo e o texto */
+    margin-right: 10px; 
 }
 
 .avatar-perfil {
     width: 40px;
     height: 40px;
-    object-fit: cover; /* Ajusta a imagem ao contêiner, mantendo a proporção */
+    object-fit: cover; 
 }
 
 .notification-box .notification-item.green {
-    border-left-color: green; /* Barra lateral verde para notificações de sucesso */
+    border-left-color: green; 
 }
 
 .notification-box .notification-item p {
@@ -176,7 +175,7 @@ body {
 }
 
 .notification-box .notification-item .details-link {
-    color: red; /* Cor do link de detalhes */
+    color: red; 
     font-size: 12px;
     text-align: right;
     display: block;
@@ -186,8 +185,8 @@ body {
     Cartões 
 */
 .card {
-    border-radius: 10px; /* Cantos arredondados */
-    border: 1px solid #ddd; /* Borda do cartão */
+    border-radius: 10px; 
+    border: 1px solid #ddd; 
 }
 
 .card h5 {
@@ -211,60 +210,60 @@ body {
     border: none;
     width: 50px;
     height: 50px;
-    object-fit: cover; /* Ajusta a imagem ao contêiner, mantendo a proporção */
+    object-fit: cover; 
 }
 
 /* 
     Botões customizados 
 */
 .btn-danger {
-    background-color: #ff4d4d; /* Cor de fundo do botão de perigo */
-    border-color: #ff4d4d; /* Cor da borda do botão de perigo */
+    background-color: #ff4d4d; 
+    border-color: #ff4d4d; 
 }
 
 .btn-light {
     color: #555;
-    background-color: #f8f9fa; /* Cor de fundo do botão claro */
-    border-color: #ddd; /* Cor da borda do botão claro */
+    background-color: #f8f9fa; 
+    border-color: #ddd; 
 }
 
 .btn-light:hover {
-    background-color: #e2e6ea; /* Cor de fundo do botão claro ao passar o mouse */
+    background-color: #e2e6ea; 
 }
 
 /* 
     Relatórios 
 */
 .report {
-    display: none; /* Inicialmente oculto */
+    display: none; 
     height: 60%;
-    overflow: auto; /* Adiciona barra de rolagem se o conteúdo ultrapassar a altura */
+    overflow: auto; 
 }
 
 .report.active {
-    display: block; /* Exibe o relatório quando ativo */
+    display: block; 
 }
 
 .flex-grow-1 {
-    flex-grow: 1; /* Permite que o elemento ocupe o espaço disponível */
+    flex-grow: 1; 
 }
 
 .progress {
     height: 20px;
-    background-color: #f8d7da; /* Cor de fundo da barra de progresso */
+    background-color: #f8d7da; 
 }
 
 .progress-bar {
     line-height: 20px;
     font-size: 12px;
-    background-color: #dc3545; /* Cor da barra de progresso */
+    background-color: #dc3545; 
 }
 
 .report-regiao img,
 .report-pagamentos img {
     width: 30px;
     height: 30px;
-    object-fit: cover; /* Ajusta a imagem ao contêiner, mantendo a proporção */
+    object-fit: cover; 
 }
 
 /* 
@@ -275,8 +274,8 @@ body {
     justify-content: space-around;
     align-items: flex-end;
     height: 250px;
-    background-color: #f4f4f4; /* Cor de fundo do gráfico */
-    border-radius: 10px; /* Cantos arredondados */
+    background-color: #f4f4f4; 
+    border-radius: 10px; 
     padding: 20px;
     margin: 20px 0;
 }
@@ -293,12 +292,12 @@ body {
 .bar-chart .bar {
     width: 100%;
     max-height: 150px;
-    background-color: #dc3545; /* Cor da barra */
-    border-radius: 5px 5px 0 0; /* Cantos arredondados no topo da barra */
+    background-color: #dc3545; 
+    border-radius: 5px 5px 0 0; 
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    color: #fff; /* Cor do texto dentro da barra */
+    color: #fff; 
     font-size: 12px;
     margin-bottom: 5px;
 }
@@ -316,7 +315,7 @@ body {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto; /* Centraliza o gráfico horizontalmente */
+    margin: 0 auto; 
 }
 
 #chart-placeholder {
@@ -332,11 +331,11 @@ body {
 
 /* Ajustes para a navbar fixa */
 .fixed-top {
-    z-index: 1030; /* Garante que a navbar fique acima de outros elementos */
+    z-index: 1030; 
 }
 
 .pt-5 {
-    padding-top: 70px; /* Ajusta o padding superior para acomodar a navbar fixa */
+    padding-top: 70px; 
 }
 
 /* 
@@ -385,8 +384,8 @@ body {
 }
 
 .card-relatorio-financeiro {
-    max-height: 400px; /* altura máxima do card */
-    overflow-y: auto; /* barra de rolagem se o conteúdo for maior que a altura definida */
+    max-height: 400px; 
+    overflow-y: auto; 
 }
 
 /* Responsividade específica para a página financeira */
