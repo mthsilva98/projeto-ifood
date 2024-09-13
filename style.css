@@ -1,6 +1,6 @@
 /* Estilos globais */
 body {
-    background-color: #f8f9fa;
+    background-color: #faf8fa;
     font-family: Arial, sans-serif;
     padding-top: 90px; /* Ajusta o padding superior para acomodar a navbar fixa */
 }
@@ -387,12 +387,6 @@ body {
 .card-relatorio-financeiro {
     max-height: 400px; /* altura máxima do card */
     overflow-y: auto; /* barra de rolagem se o conteúdo for maior que a altura definida */
-}
-
-/* Estilos específicos para a página financeira */
-.finance-page {
-    background-color: #f8f9fa;
-    padding-top: 70px; /* Ajusta o padding superior para acomodar a navbar fixa */
 }
 
 /* Responsividade específica para a página financeira */
