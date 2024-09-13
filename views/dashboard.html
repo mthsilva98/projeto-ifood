@@ -6,7 +6,7 @@
     <title>Dashboard Financeiro</title>
     <link rel="icon" href="images/ifood_logo-baixa 1.svg" type="image/png"> 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="/style.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -21,9 +21,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav"> <!-- Conteúdo da barra de navegação -->
             <ul class="navbar-nav mx-auto"> 
-                <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="transacoes.html">Transações</a></li>
-                <li class="nav-item"><a class="nav-link" href="relatorio.html">Relatório e análises financeiras</a></li>
+                <li class="nav-item"><a class="nav-link" href="/views/dashboard.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="/views/transacoes.html">Transações</a></li>
+                <li class="nav-item"><a class="nav-link" href="/views/relatorio.html">Relatório e análises financeiras</a></li>
             </ul>
             <div class="d-flex align-items-center"> <!-- Botões e dropdown -->
                 <button class="btn btn-outline-info mr-3">Nota Fiscal ⇩</button> 
@@ -36,7 +36,7 @@
                         <a class="dropdown-item" href="#">Meu Perfil</a>
                         <a class="dropdown-item" href="#">Configurações</a>
                         <a class="dropdown-item" href="#">Central de ajuda</a>
-                        <a class="dropdown-item" href="index.html">Sair</a>
+                        <a class="dropdown-item" href="/views/index.html">Sair</a>
                     </div>
                 </div>
 
@@ -84,7 +84,7 @@
                     <h5>Transferências de hoje</h5>
                     <h3 class="text-success">R$ 9.440,80</h3>
                     <p>Feito em 4 pagamentos</p>
-                    <a href="transacoes.html" class="text-danger">Ver transferências de hoje</a>
+                    <a href="/views/transacoes.html" class="text-danger">Ver transferências de hoje</a>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
@@ -92,7 +92,7 @@
                     <h5>Transferência agendada</h5>
                     <h3>R$ 3.180,43</h3>
                     <p>Próxima transferência em 31/04</p>
-                    <a href="transacoes.html" class="text-danger">Ver transferência agendada</a>
+                    <a href="/views/transacoes.html" class="text-danger">Ver transferência agendada</a>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
@@ -100,7 +100,7 @@
                     <h5>Despesas</h5>
                     <h3 class="text-danger">R$ 1.080,43</h3>
                     <p>Total de taxas</p>
-                    <a href="transacoes.html" class="text-danger">Ver despesas</a>
+                    <a href="/views/transacoes.html" class="text-danger">Ver despesas</a>
                 </div>
             </div>
         </div>
@@ -114,7 +114,7 @@
                     <div id="chart-placeholder">
                         <canvas id="salesChart" width="300" height="300"></canvas> <!-- Container para o gráfico de vendas -->
                     </div>
-                    <a href="relatorio.html" class="text-danger">Ver detalhes</a>
+                    <a href="/views/relatorio.html" class="text-danger">Ver detalhes</a>
                 </div>
             </div>
 
