@@ -33,12 +33,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Exemplo: marcando o link "Transações" como ativo ao clicar em "Ver transferências de hoje"
-  const verTransferenciasBtn = document.querySelector('#ver-transferencias-btn'); // Substitua pelo ID do seu botão
-  if (verTransferenciasBtn) {
-    verTransferenciasBtn.addEventListener('click', () => {
-      const transacoesLink = document.querySelector('.nav-link[href="transacoes.html"]'); // Substitua pelo seletor do link "Transações"
-      marcarLinkAtivo(transacoesLink);
-    });
-  }
+  
 });
