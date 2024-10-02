@@ -21,7 +21,7 @@
         Página de login 
     */
     #loginPage {
-        background-image: url('/images/fundo (2).svg');
+        background-image: url('images/fundo (2).svg');
         background-size: cover;
         background-position: center;
         display: flex;
